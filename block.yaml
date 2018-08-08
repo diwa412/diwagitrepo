@@ -1,9 +1,9 @@
 --- # Block rescue always errors
- - hosts: local
+ - hosts: all
    remote_user: ansible
    become: yes
    vars:
-     web_package: httpd
+     web_package: http
      tel_package: telnet
      mar_package: mariadb
    tasks:
