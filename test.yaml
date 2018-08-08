@@ -1,0 +1,10 @@
+--- # To create tmp file
+ - hosts: all
+   remote_user: ansible
+   become: yes
+   vars:
+   tasks:
+   - name: Creating the towertest.txt file
+     copy:
+       content: "Welcome to tower"
+       dest: /tmp/towertest.txt
