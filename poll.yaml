@@ -1,0 +1,12 @@
+--- # Polling
+ - hosts: local
+   remote_user: ansible
+   become: yes
+   tasks:
+    - name: to check the polling option 
+      get_url:
+        url: http://africau.edu/images/default/sample.pdf
+# https://speed.hetzner.de/10GB.bin
+        dest: /tmp
+      async: 20
+      poll: 5

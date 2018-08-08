@@ -1,0 +1,14 @@
+--- # My First Playbook
+ - hosts: local
+   remote_user: ansible
+   become: yes
+   vars:
+   tasks:
+   - name: installing the httpd
+     yum:
+       name: httpd
+       state: latest
+   - name: restarting the httpd service
+     service:
+       name: httpd
+       state: restarted

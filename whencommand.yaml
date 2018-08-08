@@ -1,0 +1,10 @@
+--- # To use the when command
+ - hosts: local
+   remote_user: ansible
+   become: yes
+   vars:
+   tasks:
+   - command: echo {item}
+      loop: [0, 2, 4, 6, 8, 10]
+      when: item > 5
+ 

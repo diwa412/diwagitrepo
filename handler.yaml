@@ -1,0 +1,16 @@
+--- # To Use the Handler Concept
+ - hosts: local
+   remote_user: ansible
+   become: yes
+   vars:
+   tasks:
+   - name: To Check the Ganesh USer exist or not
+     user:
+       name: ganesh
+       state: absent
+     notify: test_one
+   handlers:  
+   - name: test_one
+     service:
+       name: httpd
+       state: stopped

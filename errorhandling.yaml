@@ -1,0 +1,21 @@
+--- # Handling errors
+ - hosts: local
+   remote_user: ansible
+   become: yes
+   vars:
+     web_package: http
+     tel_package: telnet
+   tasks:
+   - name: installing httpd
+     yum:
+       name: "{{ web_package }}"
+       state: latest
+     ignore_errors: yes
+   - name: installing Telnet
+     yum:
+       name: "{{ tel_package }}"
+       state: latest
+
+
+
+

@@ -1,0 +1,24 @@
+--- # Block rescue always errors
+ - hosts: local
+   remote_user: ansible
+   become: yes
+   vars:
+     web_package: httpd
+     tel_package: telnet
+     mar_package: mariadb
+   tasks:
+    - block:
+       - name: installing httpd
+         yum:
+          name: "{{ web_package }}"
+          state: latest
+      rescue: 
+       - name: installing Telnet
+         yum:
+          name: "{{ tel_package }}"
+          state: latest
+      always: 
+       - name: installing Mariadb
+         yum:
+          name: "{{ mar_package }}"
+          state: latest
