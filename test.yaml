@@ -1,7 +1,7 @@
 --- # To create tmp file
  - hosts: all
    tasks:
-   - name: Creating the towertest.txt file
-     copy:
-       content: "Welcome to tower"
-       dest: /tmp/towertest.txt
+     - name: Creating the towertest.txt file
+       copy:
+           content: "Welcome to tower"
+           dest: /tmp/towertest.txt
